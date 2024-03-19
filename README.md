@@ -1,3 +1,2 @@
-### Developer: Mostafa Shubber
-### Education: Fullstack .NET
+# Weather API project with CI/CD pipline
 
