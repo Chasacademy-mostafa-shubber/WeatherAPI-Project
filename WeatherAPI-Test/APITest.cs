@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 using System.Net;
 using System.Text.Json;
 using WeatherAPI.Models;
+using Xunit;
 
 namespace WeatherAPI_Test
 {
@@ -18,15 +19,50 @@ namespace WeatherAPI_Test
         {          
             var city = "Stockholm";
             var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync("https://api.weatherapi.com/v1/current.json?key=23ebc0730027475292d215347242202&q=Stockholm&aqi=no");
+            var response = await httpClient.GetAsync("https://localhost:7059/weather");
+            response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
             var weatherData = JsonSerializer.Deserialize<WeatherData>(content);
             Assert.Equal(city, weatherData.Location.Name);
-          
+
+
         }
 
-       
-       
+        [Fact]
+        public async Task GetFavoriteCity()
+        {
+         
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync("https://localhost:7059/weather/favorite/{city}");
+            response.EnsureSuccessStatusCode();
+            var content = await response.Content.ReadAsStringAsync();
+            var weatherData = JsonSerializer.Deserialize<WeatherData>(content);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+
+        }
+
+        [Fact]
+        public async void CheckHealth()
+        {
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync("https://localhost:7059/health");
+            response.EnsureSuccessStatusCode();
+            var data = await response.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Fact]
+        public async void CheckStats()
+        {
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync("https://localhost:7059/stats");
+            response.EnsureSuccessStatusCode();
+            var data = await response.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+
 
     }
 }

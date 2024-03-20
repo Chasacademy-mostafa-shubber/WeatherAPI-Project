@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherAPI", "WeatherAPI\WeatherAPI.csproj", "{2F6C19BA-8C8E-4B01-96FD-5DACC499BA40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherAPI-Test", "WeatherAPI-Test\WeatherAPI-Test.csproj", "{159C146E-8372-45C5-B660-F15764044AF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherAPI-Test", "WeatherAPI-Test\WeatherAPI-Test.csproj", "{159C146E-8372-45C5-B660-F15764044AF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
