@@ -10,4 +10,28 @@
 # Data
 I only used data from weatherapi.com
 
-# Backloge
+# Initial backlog
+
+| Completed backlog |
+|:------------------|
+| Som användare av API:et vill jag kunna få aktuell väderdata(temperatur, luftfuktighet, vind) för Stockholm |
+|Som användare av API:et vill jag kunna spara en favoritstad och slippa ange den varje gång (Obs att det bara ska sparas så länge appen körs, alltså inte mellan körningar)|
+|Som systemägare vill jag kunna se om API:et körs (health check)|
+|Som systemägare vill jag kunna se statistik på antal anrop sen API:et startades|
+|Som slutanvändare av Reactklienten vill jag kunna se aktuellt väder för Stockholm|
+|Som slutanvändare av Reactklienten vill jag kunna se och spara favoritstad|
+
+# Azure Pipline
+My azure pipline succeeded.
+
+| Steps |
+|:-------|
+| Initialize job |
+| Checkout Chasacademy-mostafa-shubber/WeatherAPI-Project@master to s |
+|NuGetToolInstaller|
+|NuGetCommand|
+|VSBuild|
+|VSTest|
+|Post-job: Checkout Chasacademy-mostafa-shubber/WeatherAPI-Project@master to s|
+|Finalize Job|
+
