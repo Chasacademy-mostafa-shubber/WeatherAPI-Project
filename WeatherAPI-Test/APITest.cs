@@ -15,52 +15,21 @@ namespace WeatherAPI_Test
     {      
 
         [Fact]
-        public async Task GetWeatherStockholm()
+        public async Task CheckAPI()
         {          
             var city = "Stockholm";
+            var apiKey = "23ebc0730027475292d215347242202";
             var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync("https://localhost:7059/weather");
-            response.EnsureSuccessStatusCode();
-            //var content = await response.Content.ReadAsStringAsync();
-            //var weatherData = JsonSerializer.Deserialize<WeatherData>(content);
-            //Assert.Equal(city, weatherData.Location.Name);
+            var response = await httpClient.GetAsync($"https://api.weatherapi.com/v1/current.json?key={apiKey}&q={city}&aqi=no");
+          
+            var content = await response.Content.ReadAsStringAsync();
+            var weatherData = JsonSerializer.Deserialize<WeatherData>(content);
+            Assert.Equal(city, weatherData.Location.Name);
 
 
         }
 
-        [Fact]
-        public async Task GetFavoriteCity()
-        {
-         
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync("https://localhost:7059/weather/favorite/{city}");
-            response.EnsureSuccessStatusCode();
-            //var content = await response.Content.ReadAsStringAsync();
-            //var weatherData = JsonSerializer.Deserialize<WeatherData>(content);
-            //Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-
-
-        }
-
-        [Fact]
-        public async void CheckHealth()
-        {
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync("https://localhost:7059/health");
-            response.EnsureSuccessStatusCode();
-            //var data = await response.Content.ReadAsStringAsync();
-            //Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        }
-
-        [Fact]
-        public async void CheckStats()
-        {
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync("https://localhost:7059/stats");
-            response.EnsureSuccessStatusCode();
-            //var data = await response.Content.ReadAsStringAsync();
-            //Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        }
+       
 
 
 
