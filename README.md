@@ -35,3 +35,10 @@ My azure pipline succeeded.
 |Post-job: Checkout Chasacademy-mostafa-shubber/WeatherAPI-Project@master to s|
 |Finalize Job|
 
+# Program.cs
+In program.cs i have 4 methods
+* app.MapGet("/weather": Get weather from Stockholm
+* app.MapGet("/weather/favorite/{city}: Get weather from your favorite city
+* app.MapGet("/health": Check the health
+* app.MapGet("/stats": Check the stats of api calls
+
