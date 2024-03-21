@@ -42,3 +42,5 @@ In program.cs i have 4 methods
 * app.MapGet("/health": Check the health
 * app.MapGet("/stats": Check the stats of api calls
 
+# Xunit
+In xunit i have one method with url from weatherapi.com. 
